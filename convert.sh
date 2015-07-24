@@ -5,13 +5,13 @@ usage() {
 
 FILE="$1"
 
-if [[ ! $FILE =~ \.zip$ ]]; then
+if [[ ! "$FILE" =~ \.zip$ ]]; then
     usage
 fi
 
 # unzip
 echo "# Extracting factory image..."
-unzip -qq $FILE -d tmp
+unzip -qq "$FILE" -d tmp
 
 # convert
 echo "# Converting sparse images to EXT4 image..."
