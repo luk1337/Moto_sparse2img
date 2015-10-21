@@ -1,5 +1,11 @@
+#!/bin/bash
 usage() {
     echo "usage: ./convert.sh [factory image zip]"
+    exit
+}
+exist() {
+    echo "./simg2img is does not exist or is not executable"
+    echo "make sure the binary exist, and is executable"
     exit
 }
 
@@ -7,6 +13,8 @@ FILE="$1"
 
 if [[ ! "$FILE" =~ \.zip$ ]]; then
     usage
+elif [[ ! -x './simg2img' ]]; then
+    exist
 fi
 
 # unzip
